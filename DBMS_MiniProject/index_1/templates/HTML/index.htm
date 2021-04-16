@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% load svg %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +30,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Signin</a>
+                <a class="nav-link" href="{% url 'sign_in' %}">Signin</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'Sign_up' %}">Signup</a>

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse,Http404,HttpResponsePermanentRedirect
 from .models import Customer
 from django.db import connection
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
 global c_id
@@ -27,5 +28,8 @@ def sign_up_logic(request):
         return redirect('Home')
     else:
         return redirect('Home')
+
+def sign_in(request):
+    return render(request,'HTML/signin.html')
 
     
