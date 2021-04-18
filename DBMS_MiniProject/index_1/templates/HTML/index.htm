@@ -50,24 +50,24 @@
             </div>
         </div>
       </section> 
-      <section id="Select-Location">
-        <div>
-          <div class="col-lg-5 location-container" >
-            <div>
-              <select class="form-select" id="state" required="">
-                <option value="">Choose Location</option>
-                <option>Nashik</option>
-                <option>Pune</option>
-                <option>Mumbai</option>
-              </select>
-              <button type="button" class="btn find-button">Find Deals</button>
+      <form action="{% url 'agency_deal' %}" method="POST">
+        {% csrf_token %}
+        <section id="Select-Location">
+          <div>
+            <div class="col-lg-5 location-container">
+              <div>
+                <select class="form-select" id="state" required="">
+                  <option value="">Choose Location</option>
+                  <option name='Nashik' value='Nashik'>Nashik</option>
+                  <option name='Pune' value="Pune">Pune</option>
+                  <option name='Mumbai' value='Mumbai'>Mumbai</option>
+                </select>
+                <button type="submit" class="btn find-button">Find Deals</button>
+              </div>
             </div>
           </div>
-        </div>
-        
-
-        
-      </section>
+        </section>
+      </form>
 
     <footer class = 'w-100'style="position:relative;bottom: 0%;">
       <p class="footer-text" >© 2021 TRAVELOGO</p>
