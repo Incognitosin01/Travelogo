@@ -11,7 +11,6 @@ footer{
 .navbar-color{
     background-color:#a1eafb;
 }
-
 .footer-text{
     padding-top: 30px;
 }
@@ -23,6 +22,17 @@ footer{
 }
 .cover-container{
     position : relative; 
+    
+}
+
+.inner-images{
+    
+    height: 8000px;
+}
+.gif_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cover-text{
     position : absolute;
@@ -58,4 +68,18 @@ margin-top: 5%;
 
 .find-button{
     margin-left: 3%;
+}
+.card-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-container-inner{
+    text-align: center;
+}
+.inner-images{
+    width:auto;
+    min-height: 35vh;
+    max-height : 80vh;
 }
