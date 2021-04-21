@@ -7,5 +7,6 @@ urlpatterns = [
     path('sign_in',views.sign_in,name='sign_in'),
     path('agencies',views.agencies_deal,name='agency_deal'),
     path('log_in',views.sign_in_logic,name='log_in'),
-    path('log_out',views.sign_out_logic,name='log_out')
+    path('log_out',views.sign_out_logic,name='log_out'),
+    path('Book_agency/<str:agency><str:rating>',views.booking,name='booking'),
 ]

@@ -16,10 +16,14 @@ def sign_up(request):
 def sign_in(request):
     return render(request,'HTML/signin.html')
 
+def booking(request,agency,rating):
+    x = agency
+    y = rating
+    return render(request,'HTML/AgencyPage.html',{'x':x,'y':y})
 
 def sign_up_logic(request):
     # print("check")
-    
+    connection = cx_Oracle.connect('c##admin','admin','localhost/orcl',encoding = 'UTF-8')
     try:
         cursor = connection.cursor()
         if request.method == 'POST':
@@ -36,8 +40,14 @@ def sign_up_logic(request):
             return redirect('Home')
         else:
             return redirect('Home')
-    except:
-        return HttpResponse("<h1>Sorry for this type of error!!</h1><center><b style='font-size : 50px;'>Have you ever visited Pune's Shaniwarwada</b></center>")
+    except cx_Oracle.DatabaseError as exc:
+        error, = exc.args
+        print(error.message)
+        if error.message == """ORA-20050: ERROR\nORA-06512: at "C##ADMIN.EMAIL_TRIG", line 7\nORA-04088: error during execution of trigger 'C##ADMIN.EMAIL_TRIG'""":
+            return HttpResponse("<h1>Sorry for this type of error!!</h1><center><b style='font-size : 50px;'>PHONE NUMBER ALREADY EXISTS</b></center>")
+        else:
+            return HttpResponse("<h1>Sorry for this type of error!!</h1><center><b style='font-size : 50px;'>Have you ever visited Pune's Shaniwarwada</b></center>")
+
 
 
 def sign_in_logic(request):
@@ -79,6 +89,7 @@ def agencies_deal(request):
         myvar = cur.var(cx_Oracle.CURSOR)
         print(myvar)
         cur.callfunc('find_deals',myvar,[city_name])
+        global deals
         deals = myvar.getvalue().fetchall()
         print(deals)
         return render(request,'HTML/agencies.html',{'deals':deals})

@@ -109,7 +109,7 @@
                         <h5 class="card-title"></h5>
                         <h6><b class="lead">Name : </b>{{agencies.0}}</h6>
                         <h6><b class="lead">Rating : </b>{{agencies.1}}</h6>
-                        <a href="#" class="btn btn-primary">Check Offers</a>
+                        <a href="{% url 'booking' agencies.0 agencies.1 %}" class="btn btn-primary">Check Offers</a>
                     </div>
                 </div>
             </div>
