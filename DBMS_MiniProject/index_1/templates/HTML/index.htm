@@ -18,12 +18,25 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <title>TRAVELOGO</title>
   <style>
     body {
       background-image: linear-gradient(125deg,whitesmoke,darkgrey);
     }
   </style>
+  <script>
+    setTimeout(function () {
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3500)
+  </script>
+  
 </head>
 
 <body>
@@ -58,6 +71,13 @@
       </div>
     </div>
   </nav>
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" style="margin-top: 70px;" role="alert" id="msg" ">
+        <strong>Message : </strong>
+        {{ message }}
+    
+      </div>
+      {% endfor %}
   <section id="Cover-Section">
     <div class="cover-container">
       <img src="{% static 'IMAGES/cover-img-2.jpeg' %}" class="cover-img w-100">
@@ -70,7 +90,7 @@
   <section id="showtext">
     
   <div class='gif_container' data-aos="flip-up" data-aos-delay="2000">
-    <img src="{% static 'IMAGES/source_travel.gif' %}" class="mx-auto" alt="travel_gif" style="height: 400px;width: 100%;">
+    <img src="{% static 'IMAGES/source_travel.gif' %}" class="mx-auto" alt="travel_gif" style="height: 400px;width: 75%;">
     <form action="{% url 'agency_deal' %}" method="POST">
   </div>
   {% csrf_token %}

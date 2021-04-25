@@ -9,4 +9,7 @@ urlpatterns = [
     path('log_in',views.sign_in_logic,name='log_in'),
     path('log_out',views.sign_out_logic,name='log_out'),
     path('Book_agency/<str:agency><str:rating>',views.booking,name='booking'),
+    path('booked/',views.send_email,name='get_mail'),
+    
+    
 ]

@@ -13,9 +13,7 @@ footer{
     justify-content: center;
     align-items: center;
 }
-.gif_container:hover{
-    data-aos:'zoom-in';
-}
+
 .navbar-color{
     background-color:#a1eafb;
 }
@@ -102,4 +100,8 @@ margin-top: 5%;
     -o-backdrop-filter: blur(6px);
     -ms-backdrop-filter: blur(6px);
     backdrop-filter: blur(5px);
+}
+.modal-backdrop{
+    display: none;
+    
 }

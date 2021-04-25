@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+
+    <title>BOOKING FOR {{x}}</title>
+    <style>
+        *{
+            margin: 25px;
+            box-sizing: border-box;
+        }
+        body{
+            border-radius: 50px;
+            margin: 30px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="card form-control" style="background-color:#a1eafb;">
+        <h3 class="card-header" style="background-color: #000;color: cornsilk;"><b>
+                    BOOKING FOR {{x}} OF RATING {{y}} IN {{city}}
+            </b>
+        </h3>
+        <div class="card-body" style="background-color: black;">
+            <h1 style="color: cornsilk;">Hello, {{a}} {{b}}</h1>
+            <h2 style="color: cornsilk;">Your selected option : {{user_ans}}</h2>
+            <h2 style="color: cornsilk;">Number of passengers to visit {{city}} are {{pass}}</h2>
+            <h2 style="color: cornsilk;" >Contact Details of {{x}} : <b style="color: rgb(122, 238, 98)">{{details}}</b> </h2>
+        </div>
+        <div class="card-footer" style="justify-content: left;text-align: left;background-color: black;">
+            <h2 style="color: yellow;margin-bottom: 0;">ThankYou!</h2>
+            <h3 style="color: cornsilk;margin-bottom: 0;">Regards, </h3>
+            <h1 style="color: cornsilk;font-weight: 800;">TRAVELOGO</h1>
+        </div>
+    </div>
+    
+</body>
+
+</html>

@@ -35,10 +35,12 @@ class TravelAgency(models.Model):
     agency_id = models.FloatField(primary_key=True)
     agen_name = models.CharField(max_length=200)
     location = models.ForeignKey(DealLocation, models.DO_NOTHING, blank=True, null=True)
+    ph_no = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
         managed = True
         db_table = 'travel_agency'
+
 
     def  __str__(self):
         return f'{self.agen_name}'

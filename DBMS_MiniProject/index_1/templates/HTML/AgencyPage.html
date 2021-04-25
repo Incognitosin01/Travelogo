@@ -23,6 +23,7 @@
      background-repeat: no-repeat;
      background-size: 100%;
      background-attachment: fixed;
+     
     }
     footer{
     position: absolute;
@@ -49,6 +50,7 @@
                     <li class="nav-item ">
                         <a class="nav-link active" aria-current="page" href="{% url 'Home' %}">Home</a>
                     </li> 
+                    
                 </ul>
             </div>
         </div>
@@ -59,32 +61,31 @@
                 <h1>{{x}}</h1>
                 <h5>Rating : {{y}}</h5>
             </div>
-            <form class="form-container col mx-auto">
+            <form class="form-container col mx-auto" action="{% url 'get_mail' %}" method="POST">
+                {% csrf_token %}
                 <div class="mb-3 col-lg-5 ">
                     <div class="mb-3">
                         <label class="form-label">
                             Select Type of Vehicle
                         </label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select Type of Vehicle</option>
-                            <option value="1">4 Seater</option>
-                            <option value="2">6 Seater</option>
-                            <option value="3">17 Seater</option>
+                        <select class="form-select" aria-label="Default select example" name='term'>
+                            <option selected>Seat & charges</option>
+                            
+                            {% for val in charges  %}
+                                <option value="seats : {{val.0}} & charges : {{val.1}} Rs/km">seats : {{val.0}} || charges : {{val.1}} Rs/km</option>
+                            {% endfor %}
+                                
+                            
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">
                             Enter Number of Passengers
                         </label>
-                        <input class="form-control" />
+                        <input class="form-control" id="pass"name='Passengers' >
+                        <span id="num" class="text-danger" style="font-weight: 500;"></span>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label class="form-label">
-                            Charges
-                        </label>
-                        <input class="form-control" />
-                    </div> -->
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    <button type="submit" class="btn btn-primary w-100">GET AGENCY DETAILS</button>
                 </div>
             </form>
         </div>
@@ -98,6 +99,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
+        
 </body>
 
 </html>
